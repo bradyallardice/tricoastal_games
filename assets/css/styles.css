@@ -1093,6 +1093,248 @@ body.theme-avaris .btn-primary:hover {
 }
 
 /* ============================================================
+   Sandmen showcases (Nightmares, Dream-matter, Tomes) + pip divider
+   ============================================================ */
+.pip-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin: 72px 0 48px;
+}
+
+.pip-divider::before,
+.pip-divider::after {
+  content: "";
+  flex: 1;
+  max-width: 220px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 95, 189, 0.55), transparent);
+}
+
+.pip-divider img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 16px rgba(255, 95, 189, 0.35));
+  animation: pip-float 5s ease-in-out infinite;
+}
+
+@keyframes pip-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+
+/* Nightmares grid — landscape boss cards, 3+2 layout */
+.sandmen-nightmares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px auto 16px;
+  max-width: 1080px;
+}
+
+/* Center the trailing 2 cards on the second row */
+.sandmen-nightmares .nightmare-card:nth-child(4) { grid-column: 1 / span 1; grid-column-start: 1; }
+.sandmen-nightmares .nightmare-card:nth-child(4) { grid-column-start: 1; }
+.sandmen-nightmares .nightmare-card:nth-child(4),
+.sandmen-nightmares .nightmare-card:nth-child(5) {
+  /* Shift the second row to center it: 1.5 cells of offset spread across (4) and (5) */
+}
+
+/* Use a 6-col base grid so 3+2-centered works */
+.sandmen-nightmares {
+  grid-template-columns: repeat(6, 1fr);
+}
+.sandmen-nightmares .nightmare-card { grid-column: span 2; }
+.sandmen-nightmares .nightmare-card:nth-child(4) { grid-column: 2 / span 2; }
+.sandmen-nightmares .nightmare-card:nth-child(5) { grid-column: 4 / span 2; }
+
+.nightmare-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(34, 25, 65, 0.7), rgba(10, 8, 32, 0.95));
+  border: 1px solid rgba(255, 95, 189, 0.28);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.nightmare-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--sand);
+  box-shadow: 0 26px 64px rgba(0, 0, 0, 0.65);
+}
+
+.nightmare-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid rgba(255, 95, 189, 0.22);
+}
+
+.nightmare-card .nightmare-meta {
+  padding: 16px 18px 18px;
+  text-align: center;
+}
+
+.nightmare-card h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--sand-soft);
+  margin: 0 0 4px;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.nightmare-card .meta {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--mist-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Dream-matter row — 7 portrait minion cards in a tight horizontal row */
+.sandmen-minions {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px;
+  margin: 40px auto 16px;
+  max-width: 1080px;
+}
+
+.minion-card {
+  margin: 0;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 95, 189, 0.22);
+  background: var(--ink-2);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  text-align: center;
+}
+
+.minion-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--sand);
+}
+
+.minion-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.minion-card figcaption {
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mist-dim);
+  padding: 8px 6px 10px;
+  background: rgba(10, 8, 32, 0.6);
+}
+
+/* Tomes row — 5 portrait tome backs */
+.sandmen-tomes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  margin: 40px auto 16px;
+  max-width: 880px;
+}
+
+.tome-card {
+  margin: 0;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.tome-card:hover {
+  transform: translateY(-6px) rotate(-1deg);
+}
+
+.tome-card:hover.tome-clarity {
+  transform: translateY(-6px) rotate(1deg);
+}
+
+.tome-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+
+.tome-card figcaption {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--sand-soft);
+  margin-top: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tome-clarity img {
+  box-shadow: 0 14px 40px rgba(255, 95, 189, 0.25), 0 14px 40px rgba(75, 231, 200, 0.18);
+}
+
+/* Responsive: collapse Sandmen grids on smaller screens */
+@media (max-width: 980px) {
+  .sandmen-nightmares {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .sandmen-nightmares .nightmare-card { grid-column: span 2; }
+  .sandmen-nightmares .nightmare-card:nth-child(4) { grid-column: 1 / span 2; }
+  .sandmen-nightmares .nightmare-card:nth-child(5) { grid-column: 3 / span 2; }
+
+  .sandmen-minions {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .sandmen-tomes {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+  .tome-card figcaption { font-size: 0.9rem; }
+}
+
+@media (max-width: 640px) {
+  .pip-divider { gap: 14px; margin: 56px 0 36px; }
+  .pip-divider::before,
+  .pip-divider::after { max-width: 80px; }
+  .pip-divider img { width: 44px; height: 44px; }
+
+  .sandmen-nightmares {
+    grid-template-columns: 1fr 1fr;
+  }
+  .sandmen-nightmares .nightmare-card,
+  .sandmen-nightmares .nightmare-card:nth-child(4),
+  .sandmen-nightmares .nightmare-card:nth-child(5) {
+    grid-column: span 1;
+  }
+  .sandmen-nightmares .nightmare-card:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+
+  .sandmen-minions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .minion-card figcaption { font-size: 0.7rem; }
+
+  .sandmen-tomes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .tome-card:nth-child(4),
+  .tome-card:nth-child(5) { /* keep all visible */ }
+}
+
+/* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 820px) {
