@@ -907,6 +907,65 @@ body.theme-avaris .btn-primary:hover {
   border: 0;
 }
 
+/* Sandmen hero: logo as foreground, cosmic purple/magenta backdrop */
+.sandmen-hero {
+  position: relative;
+  text-align: center;
+  padding: 64px 0 56px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(106, 63, 184, 0.38) 0%, transparent 55%),
+    linear-gradient(180deg, #1a0d3a 0%, #100828 60%, var(--ink) 100%);
+}
+
+.sandmen-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 8% 75%, rgba(255, 95, 189, 0.10), transparent 50%),
+    radial-gradient(ellipse at 92% 25%, rgba(75, 231, 200, 0.10), transparent 55%);
+  pointer-events: none;
+}
+
+.sandmen-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.sandmen-hero-logo {
+  display: block;
+  margin: 6px auto 18px;
+  max-width: min(520px, 88%);
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.6));
+}
+
+.sandmen-hero .lede {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--sand-soft);
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  max-width: 680px;
+  margin: 0 auto 18px;
+}
+
+.sandmen-hero .hero-status {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--sand);
+  margin: 8px 0 0;
+}
+
+.sandmen-hero .hero-status::before,
+.sandmen-hero .hero-status::after {
+  content: "·";
+  padding: 0 10px;
+  opacity: 0.6;
+}
+
 /* Custom hero: logo as foreground, deep-ocean gradient as backdrop */
 .toa-hero {
   position: relative;
