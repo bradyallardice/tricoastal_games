@@ -1301,15 +1301,7 @@ body.theme-avaris .btn-primary:hover {
   max-width: 1080px;
 }
 
-/* Center the trailing 2 cards on the second row */
-.sandmen-nightmares .nightmare-card:nth-child(4) { grid-column: 1 / span 1; grid-column-start: 1; }
-.sandmen-nightmares .nightmare-card:nth-child(4) { grid-column-start: 1; }
-.sandmen-nightmares .nightmare-card:nth-child(4),
-.sandmen-nightmares .nightmare-card:nth-child(5) {
-  /* Shift the second row to center it: 1.5 cells of offset spread across (4) and (5) */
-}
-
-/* Use a 6-col base grid so 3+2-centered works */
+/* Use a 6-col base grid so 3+2 centered works */
 .sandmen-nightmares {
   grid-template-columns: repeat(6, 1fr);
 }
