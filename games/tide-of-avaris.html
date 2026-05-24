@@ -7,7 +7,7 @@
   <meta name="description" content="A competitive pirate strategy game where captains race to collect, protect, and bury the most valuable treasure before the seas run dry." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&family=Pirata+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body class="theme-avaris">
@@ -34,19 +34,34 @@
 
   <main>
 
-    <section class="game-hero with-art">
-      <div class="hero-art" style="background-image: url('../assets/images/tide_of_avaris/logo_stacked.jpg');">
-        <div class="container">
-          <div class="eyebrow">Competitive · Pirates · Dice</div>
-          <h1>Tide of Avaris</h1>
-          <p class="lede">Set sail for the Coralunas, where every treasure is a temptation and every pirate is a threat.</p>
+    <section class="toa-hero">
+      <div class="container">
+        <div class="eyebrow">Competitive · Pirates · Dice</div>
+        <img src="../assets/images/tide_of_avaris/logo_stacked.jpg" alt="Tide of Avaris" class="toa-hero-logo" />
+        <h1 class="visually-hidden">Tide of Avaris</h1>
+        <p class="lede">Set sail for the Coralunas, where every treasure is a temptation and every pirate is a threat.</p>
 
-          <ul class="spec-row">
-            <li><span class="label">Players</span><span class="value">2&ndash;4</span></li>
-            <li><span class="label">Time</span><span class="value">90&ndash;120 min</span></li>
-            <li><span class="label">Ages</span><span class="value">12+</span></li>
-            <li><span class="label">Status</span><span class="value">In Development</span></li>
-          </ul>
+        <ul class="spec-row">
+          <li><span class="label">Players</span><span class="value">2&ndash;4</span></li>
+          <li><span class="label">Time</span><span class="value">90&ndash;120 min</span></li>
+          <li><span class="label">Ages</span><span class="value">12+</span></li>
+          <li><span class="label">Status</span><span class="value">In Development</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section toa-trailer-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Watch the Trailer</div>
+          <h2>Hoist the colors.</h2>
+        </div>
+        <div class="trailer-frame">
+          <iframe src="https://www.youtube.com/embed/fqsegW7R58A"
+                  title="Tide of Avaris &mdash; Trailer"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -78,42 +93,70 @@
           </div>
         </div>
 
-        <h2>The board, the captains, the gold</h2>
-        <p>Snapshots from the current build &mdash; the simplified map of the Coralunas, three of the asymmetric captain mats, and the gold doubloon that drives every wager and brawl on the table.</p>
       </div>
 
-      <div class="container" style="max-width: 1080px;">
-        <div class="gallery">
-          <div class="gallery-item wide">
-            <img src="../assets/images/tide_of_avaris/board.jpg" alt="The simplified Tide of Avaris board: a 4x4 grid of islands across a turquoise sea, tracked by Navy Hunts, Midnight Wager, and Rising Tide." />
-            <div class="caption">The Coralunas</div>
-          </div>
-          <div class="gallery-item">
-            <img src="../assets/images/tide_of_avaris/character_mat.jpg" alt="Sable Marlowe, the Silverfin &mdash; a captain mat with the Upgrades ladder and Treasure Hold." />
-            <div class="caption">Sable Marlowe &mdash; the Silverfin</div>
-          </div>
-          <div class="gallery-item">
-            <img src="../assets/images/tide_of_avaris/mat_red.jpg" alt="Red captain mat: Upgrades ladder and Treasure Hold." />
-            <div class="caption">The Red Captain</div>
-          </div>
-          <div class="gallery-item">
-            <img src="../assets/images/tide_of_avaris/mat_green.jpg" alt="Green captain mat: Obadiah Morrow, the Hollow Saint." />
-            <div class="caption">Obadiah Morrow &mdash; the Hollow Saint</div>
-          </div>
-          <div class="gallery-item">
-            <img src="../assets/images/tide_of_avaris/mat_blue.jpg" alt="Blue captain mat: Upgrades ladder and Treasure Hold." />
-            <div class="caption">The Blue Captain</div>
-          </div>
-          <div class="gallery-item">
-            <img src="../assets/images/tide_of_avaris/gold.png" alt="A single gold doubloon stamped with a skull." />
-            <div class="caption">A Doubloon of Avaris</div>
-          </div>
+      <div class="container">
+        <div class="toa-doubloon-divider">
+          <img src="../assets/images/tide_of_avaris/gold.png" alt="" />
+        </div>
+
+        <div class="section-header">
+          <div class="eyebrow">The Crews of the Coralunas</div>
+          <h2>Meet the captains</h2>
+          <div class="divider"></div>
+          <p>Every captain comes with their own upgrade ladder, their own grudges, and their own way of breaking the rules.</p>
+        </div>
+
+        <div class="toa-captains">
+          <article class="captain-card">
+            <img class="mat" src="../assets/images/tide_of_avaris/character_mat.jpg" alt="Sable Marlowe captain mat &mdash; Upgrades ladder and Treasure Hold." />
+            <div class="captain-meta">
+              <h3>Sable Marlowe</h3>
+              <p class="title">The Silverfin</p>
+            </div>
+          </article>
+          <article class="captain-card">
+            <img class="mat" src="../assets/images/tide_of_avaris/mat_red.jpg" alt="Admiral Mei Dao captain mat &mdash; Upgrades ladder and Treasure Hold." />
+            <div class="captain-meta">
+              <h3>Admiral Mei Dao</h3>
+              <p class="title">Silk Shadow</p>
+            </div>
+          </article>
+          <article class="captain-card">
+            <img class="mat" src="../assets/images/tide_of_avaris/mat_green.jpg" alt="Obadiah Morrow captain mat &mdash; Upgrades ladder and Treasure Hold." />
+            <div class="captain-meta">
+              <h3>Obadiah Morrow</h3>
+              <p class="title">The Hollow Saint</p>
+            </div>
+          </article>
+          <article class="captain-card">
+            <img class="mat" src="../assets/images/tide_of_avaris/mat_blue.jpg" alt="Torvik Storme captain mat &mdash; Upgrades ladder and Treasure Hold." />
+            <div class="captain-meta">
+              <h3>Torvik Storme</h3>
+              <p class="title">&nbsp;</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="toa-doubloon-divider">
+          <img src="../assets/images/tide_of_avaris/gold.png" alt="" />
+        </div>
+
+        <div class="section-header">
+          <div class="eyebrow">The Map</div>
+          <h2>The Coralunas, at low tide</h2>
+          <div class="divider"></div>
+          <p>Sixteen islands. Three tracks that govern the sea &mdash; Navy Hunts, Midnight Wager, Rising Tide. The longer the game runs, the less the sea forgives.</p>
+        </div>
+
+        <div class="toa-board-showcase">
+          <img src="../assets/images/tide_of_avaris/board.jpg" alt="The simplified Tide of Avaris board: a 4x4 grid of islands across a turquoise sea, tracked by Navy Hunts, Midnight Wager, and Rising Tide." />
         </div>
       </div>
 
       <div class="container prose">
         <h2>Status</h2>
-        <p>Tide of Avaris is in the late stages of development. We&rsquo;re finalizing the map, balancing house asymmetry, and preparing a small print run for testing. For updates or to join the playtest list, write to <a href="mailto:playtest@tricoastalgames.com">playtest@tricoastalgames.com</a>.</p>
+        <p>Tide of Avaris is in the late stages of development. We&rsquo;re finalizing the map, balancing captain asymmetry, and preparing a small print run for testing. For updates or to join the playtest list, write to <a href="mailto:playtest@tricoastalgames.com">playtest@tricoastalgames.com</a>.</p>
 
         <p>Want to follow along? Join the <a href="https://discord.gg/6frBMqsnAa" target="_blank" rel="noopener">Tide of Avaris Discord</a> for development updates, brawl reports, and first looks at new captains.</p>
 

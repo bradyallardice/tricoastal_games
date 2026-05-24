@@ -720,26 +720,8 @@ p { margin: 0 0 1em; color: var(--mist); }
 .sheet-row {
   display: grid;
   /* Preserve the original sell sheet's column ratio (665:610). */
-  grid-template-columns: var(--col-l, 1) fr var(--col-r, 1) fr;
-  grid-template-columns: var(--col-l, 1fr) var(--col-r, 1fr);
+  grid-template-columns: 665fr 610fr;
   gap: 0;
-}
-
-.sheet-row .sheet-slice {
-  width: 100%;
-}
-
-.sheet-row .sheet-slice:first-child {
-  grid-column: 1;
-}
-
-.sheet-row .sheet-slice:last-child {
-  grid-column: 2;
-}
-
-/* Apply numeric ratios via inline custom props (--col-l, --col-r). */
-.sheet-row {
-  grid-template-columns: calc(var(--col-l) * 1fr) calc(var(--col-r) * 1fr);
 }
 
 .sheet-download {
@@ -881,9 +863,14 @@ body.theme-avaris .game-card::before {
 }
 
 body.theme-avaris h1,
-body.theme-avaris h2,
-body.theme-avaris h3 {
-  font-family: var(--serif);
+body.theme-avaris h2 {
+  font-family: 'Pirata One', 'Cinzel', 'Cormorant Garamond', serif;
+  letter-spacing: 0.02em;
+}
+
+body.theme-avaris .section-header h2,
+body.theme-avaris .feature h3 {
+  color: var(--sand-soft);
 }
 
 body.theme-avaris .btn-primary {
@@ -893,6 +880,216 @@ body.theme-avaris .btn-primary {
 body.theme-avaris .btn-primary:hover {
   background: var(--sand-soft);
   color: var(--ink);
+}
+
+/* ============================================================
+   Tide of Avaris — page-specific blocks
+   ============================================================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Custom hero: logo as foreground, deep-ocean gradient as backdrop */
+.toa-hero {
+  position: relative;
+  text-align: center;
+  padding: 80px 0 70px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(62, 207, 230, 0.42) 0%, transparent 55%),
+    linear-gradient(180deg, #0a3a7a 0%, #061b3d 60%, var(--ink) 100%);
+}
+
+.toa-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 8% 75%, rgba(242, 196, 73, 0.10), transparent 50%),
+    radial-gradient(ellipse at 92% 25%, rgba(62, 207, 230, 0.12), transparent 55%);
+  pointer-events: none;
+}
+
+.toa-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.toa-hero-logo {
+  display: block;
+  margin: 4px auto 22px;
+  max-width: min(620px, 88%);
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.6));
+}
+
+.toa-hero .lede {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--sand-soft);
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  max-width: 720px;
+  margin: 0 auto 14px;
+}
+
+.toa-hero .spec-row .label { color: var(--sand); }
+
+/* Trailer embed */
+.toa-trailer-section {
+  padding-top: 72px;
+  padding-bottom: 48px;
+}
+
+.toa-trailer-section .section-header { margin-bottom: 36px; }
+
+.trailer-frame {
+  position: relative;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--sand);
+  box-shadow:
+    0 0 0 6px var(--ink-2),
+    0 0 0 8px rgba(242, 196, 73, 0.35),
+    0 28px 80px rgba(0, 0, 0, 0.55);
+  background: #000;
+}
+
+.trailer-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Doubloon divider */
+.toa-doubloon-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 56px 0;
+}
+
+.toa-doubloon-divider::before,
+.toa-doubloon-divider::after {
+  content: "";
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(242, 196, 73, 0.7), transparent);
+}
+
+.toa-doubloon-divider img {
+  width: 56px;
+  height: auto;
+  filter: drop-shadow(0 4px 14px rgba(242, 196, 73, 0.45));
+  animation: doubloon-bob 4s ease-in-out infinite;
+}
+
+@keyframes doubloon-bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(-4px) rotate(2deg); }
+}
+
+/* Captains showcase */
+.toa-captains {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+  margin: 40px 0 16px;
+}
+
+.captain-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(11, 39, 85, 0.55), rgba(6, 27, 61, 0.95));
+  border: 1px solid rgba(242, 196, 73, 0.32);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.captain-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--sand);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.6);
+}
+
+.captain-card .mat {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center top;
+  border-bottom: 2px solid var(--sand);
+}
+
+.captain-card .captain-meta {
+  padding: 18px 22px 22px;
+  text-align: center;
+}
+
+.captain-card h3 {
+  font-family: 'Pirata One', 'Cinzel', 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  color: var(--sand);
+  margin: 0 0 2px;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.captain-card .title {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--mist-dim);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Board showcase: framed map */
+.toa-board-showcase {
+  position: relative;
+  max-width: 940px;
+  margin: 40px auto 16px;
+  padding: 18px;
+  border: 2px solid var(--sand);
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at center, rgba(11, 39, 85, 0.65), rgba(6, 27, 61, 0.95)),
+    var(--ink);
+  box-shadow:
+    0 0 0 8px rgba(242, 196, 73, 0.18),
+    0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+.toa-board-showcase img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 720px) {
+  .toa-doubloon-divider { gap: 16px; margin: 36px 0; }
+  .toa-doubloon-divider::before,
+  .toa-doubloon-divider::after { max-width: 80px; }
+  .toa-board-showcase { padding: 10px; }
 }
 
 /* ============================================================
