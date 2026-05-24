@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tricoastal Games — Tabletop adventures, from three coasts.</title>
+  <meta name="description" content="Tricoastal Games is an independent board game publisher crafting cooperative, story-driven tabletop adventures." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/images/logo.webp" alt="Tricoastal Games" />
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li class="has-dropdown">
+          <a href="#games">Games &#9662;</a>
+          <div class="dropdown">
+            <a href="games/sandmen.html">Sandmen, Inc.</a>
+            <a href="games/tide-of-avaris.html">Tide of Avaris</a>
+          </div>
+        </li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-inner">
+        <img src="assets/images/logo.webp" alt="Tricoastal Games" class="hero-logo" />
+        <p class="hero-tagline">Tabletop adventures, from three coasts.</p>
+        <p class="hero-sub">We publish cooperative, story-driven board games designed to bring friends together around something strange, beautiful, and a little dangerous.</p>
+        <div class="btn-row">
+          <a href="#games" class="btn btn-primary">Our Games</a>
+          <a href="about.html" class="btn btn-ghost">About the Studio</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="games">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Our Catalog</div>
+          <h2>Games we&rsquo;ve made</h2>
+          <div class="divider"></div>
+          <p>Each title is a self-contained world. Pick a shore and dive in.</p>
+        </div>
+
+        <div class="games-grid">
+
+          <article class="game-card has-thumb logo-thumb">
+            <div class="thumb thumb-sandmen">
+              <img src="assets/images/sandmen/sandmen_icon.png" alt="Sandmen, Inc. logo &mdash; the wordmark on a cosmic starfield, flanked by two figures in lab coats." />
+            </div>
+            <div class="card-body">
+              <div class="game-meta">
+                <span>Cooperative</span>
+                <span>3&ndash;5 Players</span>
+              </div>
+              <h3>Sandmen, Inc.</h3>
+              <p>A cooperative trick-taking fighting game where a party of overconfident young wizards battles through monster encounters powered by hand management and unspoken coordination.</p>
+              <a href="games/sandmen.html" class="card-link">Explore the game &rarr;</a>
+            </div>
+          </article>
+
+          <article class="game-card has-thumb logo-thumb">
+            <div class="thumb thumb-avaris">
+              <img src="assets/images/tide_of_avaris/logo_stacked.jpg" alt="Tide of Avaris logo &mdash; stylized gold lettering on a turquoise-to-cobalt ocean gradient." />
+            </div>
+            <div class="card-body">
+              <div class="game-meta">
+                <span>Strategy</span>
+                <span>2&ndash;4 Players</span>
+              </div>
+              <h3>Tide of Avaris</h3>
+              <p>A nautical strategy game of warring city-states, shifting currents, and the long game of trade. Sail rival routes, claim sacred islands, and time the tides to your advantage.</p>
+              <a href="games/tide-of-avaris.html" class="card-link">Explore the game &rarr;</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 24px;">
+      <div class="container">
+        <div class="split">
+          <div>
+            <div class="eyebrow">The Studio</div>
+            <h2>Three coasts. One table.</h2>
+            <p>Tricoastal Games is a small, independent publisher founded on the belief that the best tabletop experiences come from tight design, deep theme, and the people you play with. Our team works across coasts, but every game starts at the same place: a table, a prototype, and a question worth answering.</p>
+            <a href="about.html" class="btn btn-ghost" style="margin-top: 12px;">Read more</a>
+          </div>
+          <div class="split-art">
+            <img src="assets/images/logo.webp" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="assets/images/logo.webp" alt="Tricoastal Games" />
+      <small>&copy; 2026 Tricoastal Games. All rights reserved.</small>
+    </div>
+  </footer>
+
+</body>
+</html>

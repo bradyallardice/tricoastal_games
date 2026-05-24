@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tide of Avaris — Tricoastal Games</title>
+  <meta name="description" content="A nautical strategy game from Tricoastal Games." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="theme-avaris">
+
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <img src="../assets/images/logo.webp" alt="Tricoastal Games" />
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li class="has-dropdown">
+          <a href="../index.html#games" class="active">Games &#9662;</a>
+          <div class="dropdown">
+            <a href="sandmen.html">Sandmen, Inc.</a>
+            <a href="tide-of-avaris.html">Tide of Avaris</a>
+          </div>
+        </li>
+        <li><a href="../about.html">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="game-hero with-art">
+      <div class="hero-art" style="background-image: url('../assets/images/tide_of_avaris/logo_stacked.jpg');">
+        <div class="container">
+          <div class="eyebrow">Strategy · Area Control · Trade</div>
+          <h1>Tide of Avaris</h1>
+          <p class="lede">Rival city-states. Shifting currents. The long game of trade across a sea that never sits still.</p>
+
+          <ul class="spec-row">
+            <li><span class="label">Players</span><span class="value">2&ndash;4</span></li>
+            <li><span class="label">Time</span><span class="value">90&ndash;120 min</span></li>
+            <li><span class="label">Ages</span><span class="value">12+</span></li>
+            <li><span class="label">Status</span><span class="value">In Development</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose">
+        <h2>The pitch</h2>
+        <p>Tide of Avaris is a medium-weight strategy game of seafaring trade and quiet warfare. Each player commands one of the great houses of the Avarine coast, sending fleets across a shared map of shifting currents to claim trade routes, occupy sacred islands, and outmaneuver the rival houses gathering at the same harbors.</p>
+
+        <h2>The tide turns</h2>
+        <p>The board changes between rounds. The tide is a shared resource and a shared obstacle &mdash; routes that were profitable last season may be closed this one, and a fleet that committed to a slow approach may suddenly find itself stranded or perfectly placed. Reading the tide is half the game.</p>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>A living map</h3>
+            <p>Currents shift each round. Long-term plans have to account for a sea that doesn&rsquo;t.</p>
+          </div>
+          <div class="feature">
+            <h3>Trade as warfare</h3>
+            <p>Direct conflict is rare and expensive. Most wars are fought by closing routes, undercutting markets, and stranding fleets.</p>
+          </div>
+          <div class="feature">
+            <h3>Asymmetric houses</h3>
+            <p>Each house plays differently &mdash; from the merchant princes of the southern coast to the storm-priests of the outer isles.</p>
+          </div>
+          <div class="feature">
+            <h3>Tight footprint</h3>
+            <p>A medium-weight game in a medium-weight box. Designed to fit on a kitchen table and finish in one sitting.</p>
+          </div>
+        </div>
+
+        <h2>The board, the houses, the gold</h2>
+        <p>Snapshots from the current build &mdash; the simplified map of the Avarine coast, three of the asymmetric house mats, and the gold doubloon that fuels every trade route on the table.</p>
+      </div>
+
+      <div class="container" style="max-width: 1080px;">
+        <div class="gallery">
+          <div class="gallery-item wide">
+            <img src="../assets/images/tide_of_avaris/board.jpg" alt="The simplified Tide of Avaris board: a 4x4 grid of islands and trade routes across a turquoise sea." />
+            <div class="caption">The Avarine Coast</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/tide_of_avaris/character_mat.jpg" alt="Sable Marlowe, the Silverfin &mdash; a player house mat with upgrades and treasure hold." />
+            <div class="caption">Sable Marlowe &mdash; the Silverfin</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/tide_of_avaris/mat_red.jpg" alt="Red house player mat featuring an unnamed captain." />
+            <div class="caption">House of the Red Sail</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/tide_of_avaris/mat_green.jpg" alt="Green house player mat: Obadiah Morrow, the Hollow Saint." />
+            <div class="caption">Obadiah Morrow &mdash; the Hollow Saint</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/tide_of_avaris/mat_blue.jpg" alt="Blue house player mat featuring an unnamed captain." />
+            <div class="caption">House of the Blue Wake</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/tide_of_avaris/gold.png" alt="A single gold doubloon stamped with a skull." />
+            <div class="caption">A Doubloon of Avaris</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container prose">
+        <h2>Status</h2>
+        <p>Tide of Avaris is in the late stages of development. We&rsquo;re finalizing the map, balancing house asymmetry, and preparing a small print run for testing. For updates or to join the playtest list, write to <a href="mailto:playtest@tricoastalgames.com">playtest@tricoastalgames.com</a>.</p>
+
+        <p style="text-align:center; margin-top: 48px;">
+          <a href="../index.html#games" class="btn btn-ghost">&larr; Back to games</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="../assets/images/logo.webp" alt="Tricoastal Games" />
+      <small>&copy; 2026 Tricoastal Games. All rights reserved.</small>
+    </div>
+  </footer>
+
+</body>
+</html>
