@@ -1489,8 +1489,6 @@ body.theme-avaris .btn-primary:hover {
   .sandmen-tomes {
     grid-template-columns: repeat(3, 1fr);
   }
-  .tome-card:nth-child(4),
-  .tome-card:nth-child(5) { /* keep all visible */ }
 }
 
 /* ============================================================
