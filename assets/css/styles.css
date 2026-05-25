@@ -726,11 +726,21 @@ p { margin: 0 0 1em; color: var(--mist); }
 
 .sheet-row {
   display: grid;
-  /* Bottom row: Manipulate (taller, includes break) + Make Your Move. */
+  /* Bottom row: Manipulate (taller, includes break) + Make Your Move stacked over Components. */
   grid-template-columns: 1254fr 1234fr;
   gap: 22px;
-  align-items: start;
+  align-items: stretch;
   margin-top: 28px;
+}
+
+.sheet-col {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sheet-col .sheet-components {
+  margin-top: auto;
 }
 
 .sheet-download {
@@ -937,7 +947,10 @@ body.theme-avaris .btn-primary:hover {
 .sandmen-hero-logo {
   display: block;
   margin: 6px auto 18px;
-  max-width: min(520px, 88%);
+  width: min(720px, 96%);
+  aspect-ratio: 1.85 / 1;
+  object-fit: cover;
+  object-position: center 56%;
   filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.6));
 }
 
@@ -1469,23 +1482,6 @@ body.theme-avaris .btn-primary:hover {
   margin: 0;
   text-align: center;
   position: relative;
-  transition: transform 0.3s ease;
-}
-
-.tome-card:hover {
-  transform: translateY(-6px) rotate(-1deg);
-}
-
-.tome-card:hover.tome-clarity {
-  transform: translateY(-6px) rotate(1deg);
-}
-
-.tome-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
 }
 
 .tome-card figcaption {
@@ -1497,105 +1493,129 @@ body.theme-avaris .btn-primary:hover {
   text-transform: uppercase;
 }
 
-.tome-clarity img {
+/* Flippable tome — button host with 3D rotateY */
+.tome-flipper {
+  display: block;
+  width: 100%;
+  aspect-ratio: 363 / 506;
+  background: none;
+  border: 0;
+  padding: 0;
+  perspective: 1200px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tome-flipper:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.tome-flipper-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.75s cubic-bezier(0.65, 0.05, 0.35, 1);
+  transform-style: preserve-3d;
+}
+
+.tome-face {
+  display: block;
+}
+
+.tome-card.flipped .tome-flipper-inner {
+  transform: rotateY(180deg);
+}
+
+.tome-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+
+.tome-face-front img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.tome-face-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(180deg, var(--ink-2), #221941);
+  border: 1px solid rgba(255, 95, 189, 0.28);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 4px;
+  padding: 8px;
+}
+
+.tome-clarity .tome-face-back {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 6px;
+  padding: 10px;
+  border-color: rgba(75, 231, 200, 0.4);
+  background:
+    linear-gradient(180deg, rgba(75, 231, 200, 0.04), rgba(255, 95, 189, 0.04)),
+    linear-gradient(180deg, var(--ink-2), #221941);
+}
+
+.mini-card {
+  background-size: 800% 100%;
+  background-position: calc((var(--n) - 1) / 7 * 100%) center;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.tome-clarity .mini-card {
+  background-size: 400% 100%;
+  background-position: calc((var(--n) - 1) / 3 * 100%) center;
+}
+
+/* Per-tome background images for the mini-cards */
+.tome-card[data-row="row_situations"] .mini-card { background-image: url('../images/sandmen/row_situations.png'); }
+.tome-card[data-row="row_places"]     .mini-card { background-image: url('../images/sandmen/row_places.png'); }
+.tome-card[data-row="row_figures"]    .mini-card { background-image: url('../images/sandmen/row_figures.png'); }
+.tome-card[data-row="row_emotions"]   .mini-card { background-image: url('../images/sandmen/row_emotions.png'); }
+.tome-card[data-row="row_clarity"]    .mini-card { background-image: url('../images/sandmen/row_clarity.png'); }
+
+.tome-clarity .tome-face-front {
   box-shadow: 0 14px 40px rgba(255, 95, 189, 0.25), 0 14px 40px rgba(75, 231, 200, 0.18);
 }
 
-/* Tome card rows — show each tome's 8 numbered cards (4 for Clarity) */
+.tome-flipper:hover .tome-flipper-inner {
+  transform: translateY(-4px);
+}
+
+.tome-card.flipped .tome-flipper:hover .tome-flipper-inner {
+  transform: rotateY(180deg) translateY(-4px);
+}
+
+/* Intro copy above the tome flippers */
 .tome-rows-intro {
-  max-width: 720px;
-  margin: 56px auto 28px;
+  max-width: 680px;
+  margin: 44px auto 28px;
   text-align: center;
   color: var(--mist-dim);
   font-size: 1.02rem;
   font-family: var(--serif);
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .tome-rows-intro em {
   color: var(--sand-soft);
   font-style: italic;
-}
-
-.tome-rows {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.tome-row {
-  display: grid;
-  grid-template-columns: 44px 110px 1fr;
-  align-items: center;
-  gap: 18px;
-  padding: 14px 18px;
-  background: rgba(34, 25, 65, 0.45);
-  border: 1px solid rgba(255, 95, 189, 0.16);
-  border-radius: 10px;
-  transition: border-color 0.25s ease, background 0.25s ease;
-}
-
-.tome-row:hover {
-  border-color: rgba(255, 95, 189, 0.4);
-  background: rgba(34, 25, 65, 0.65);
-}
-
-.tome-row-pip {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
-  justify-self: center;
-}
-
-.tome-row-name {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  color: var(--sand-soft);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.tome-row-cards {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 6px;
-}
-
-.tome-row-clarity {
-  border-color: rgba(75, 231, 200, 0.3);
-  background:
-    linear-gradient(90deg, rgba(75, 231, 200, 0.06), rgba(255, 95, 189, 0.06)),
-    rgba(34, 25, 65, 0.55);
-}
-
-.tome-row-clarity:hover {
-  border-color: rgba(75, 231, 200, 0.55);
-}
-
-.tome-row-clarity .tome-row-cards {
-  /* Clarity has only 4 cards, so it's narrower. Keep it left-aligned with a max-width
-     so the row still looks balanced. */
-  max-width: 55%;
-}
-
-@media (max-width: 640px) {
-  .tome-row {
-    grid-template-columns: 32px 1fr;
-    grid-template-areas:
-      "pip name"
-      "cards cards";
-    gap: 10px 12px;
-    padding: 12px;
-  }
-  .tome-row-pip { grid-area: pip; width: 28px; height: 28px; }
-  .tome-row-name { grid-area: name; font-size: 0.92rem; }
-  .tome-row-cards { grid-area: cards; }
-  .tome-row-clarity .tome-row-cards { max-width: 60%; margin: 0 auto; }
 }
 
 /* Responsive: collapse Sandmen grids on smaller screens */

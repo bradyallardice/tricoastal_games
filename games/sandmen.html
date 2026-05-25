@@ -47,16 +47,15 @@
     <section class="section">
       <div class="container">
         <div class="sell-sheet-block">
-          <img class="sheet-slice" src="../assets/images/sandmen/ss_top.jpg" alt="Sandmen, Inc. — Nightmares cured. Rest assured. Chicago, 1956. A team of fringe psychologists have invented a new technology that enables them to enter their patients' dreams and fight the Nightmares lurking there." />
-
-          <img class="sheet-slice sheet-spaced" src="../assets/images/sandmen/ss_part1_panels_top.png" alt="4 R.E.M. Cycles. 4 Nightmares. If anyone dies, everybody wakes up and you don't get paid. — Choose Your Condition. Nightmares set rules for each player. Meet them, or suffer the consequences." />
+          <img class="sheet-slice" src="../assets/images/sandmen/ss_part1_panels_top.png" alt="4 R.E.M. Cycles. 4 Nightmares. If anyone dies, everybody wakes up and you don't get paid. — Choose Your Condition. Nightmares set rules for each player. Meet them, or suffer the consequences." />
 
           <div class="sheet-row sheet-row-tall">
             <img class="sheet-slice" src="../assets/images/sandmen/ss_part2_manipulate.png" alt="Manipulate the Trick. Highest card wins the trick, but lower cards have stronger actions. Lead or follow suit and become the Nightmare's target. Refuse and trigger its Break Ability." />
-            <img class="sheet-slice" src="../assets/images/sandmen/ss_part3_makemove.png" alt="Make Your Move. Every card has a choice of 2 actions: Confront, Deflect, Focus, Project. Play a Clarity card to use any action and override the lead suit." />
+            <div class="sheet-col">
+              <img class="sheet-slice" src="../assets/images/sandmen/ss_part3_makemove.png" alt="Make Your Move. Every card has a choice of 2 actions: Confront, Deflect, Focus, Project. Play a Clarity card to use any action and override the lead suit." />
+              <img class="sheet-slice sheet-components" src="../assets/images/sandmen/ss_part4_components.png" alt="Components: 50 standard cards, 15 5x7 cards, 40 square cards, 5 player boards, 40 cubes, 20 tokens." />
+            </div>
           </div>
-
-          <img class="sheet-slice sheet-spaced" src="../assets/images/sandmen/ss_part4_components.png" alt="Components: 50 standard cards, 15 5x7 cards, 40 square cards, 5 player boards, 40 cubes, 20 tokens." />
 
           <img class="sheet-slice" src="../assets/images/sandmen/ss_footer.jpg" alt="Contact: team@tricoastal.games. 45-90 min. 3-5 players. Ages 12+. Illustrations by Ryan Madden." />
 
@@ -75,7 +74,7 @@
           <div class="eyebrow">The Patients&rsquo; Nightmares</div>
           <h2>Meet the Nightmares</h2>
           <div class="divider"></div>
-          <p>Five Nightmares stand between your team and the morning. Each is a fully designed trick-taking puzzle &mdash; its own conditions, its own moveset, its own Break Ability.</p>
+          <p>Four Nightmares stand between your team and the morning. Each is a fully designed trick-taking puzzle &mdash; its own conditions, its own moveset, its own Break Ability.</p>
         </div>
 
         <div class="sandmen-nightmares">
@@ -83,7 +82,7 @@
             <img src="../assets/images/sandmen/boss_milkman.png" alt="The Milkman &mdash; Level 1 nightmare boss card." />
             <div class="nightmare-meta">
               <h3>the Milkman</h3>
-              <p class="meta">Level 0 &middot; 15 HP</p>
+              <p class="meta">Level 0 (Intro) &middot; 15 HP</p>
             </div>
           </article>
           <article class="nightmare-card">
@@ -169,57 +168,105 @@
           <p>The deck splits into five Tomes &mdash; four drawn from the stuff of dreams (Situations, Places, Figures, Feelings) and a fifth, Clarity, that overrides them all.</p>
         </div>
 
-        <div class="sandmen-tomes">
-          <figure class="tome-card">
-            <img src="../assets/images/sandmen/tome_blue.png" alt="Situations tome card back." />
+        <p class="tome-rows-intro">Tap a tome to flip it over. Each of the four standard tomes carries eight cards, each offering a choice of two actions. Clarity, the fifth tome, has four cards &mdash; and any one of them can be played as <em>any</em> action and override the lead suit.</p>
+
+        <div class="sandmen-tomes" data-flippable>
+          <figure class="tome-card" data-cards="8" data-row="row_situations">
+            <button class="tome-flipper" type="button" aria-label="Reveal Situations cards">
+              <span class="tome-flipper-inner">
+                <span class="tome-face tome-face-front">
+                  <img src="../assets/images/sandmen/tome_blue.png" alt="Situations tome card back." />
+                </span>
+                <span class="tome-face tome-face-back">
+                  <span class="mini-card" style="--n: 1"></span>
+                  <span class="mini-card" style="--n: 2"></span>
+                  <span class="mini-card" style="--n: 3"></span>
+                  <span class="mini-card" style="--n: 4"></span>
+                  <span class="mini-card" style="--n: 5"></span>
+                  <span class="mini-card" style="--n: 6"></span>
+                  <span class="mini-card" style="--n: 7"></span>
+                  <span class="mini-card" style="--n: 8"></span>
+                </span>
+              </span>
+            </button>
             <figcaption>Situations</figcaption>
           </figure>
-          <figure class="tome-card">
-            <img src="../assets/images/sandmen/tome_purple.png" alt="Places tome card back." />
+          <figure class="tome-card" data-cards="8" data-row="row_places">
+            <button class="tome-flipper" type="button" aria-label="Reveal Places cards">
+              <span class="tome-flipper-inner">
+                <span class="tome-face tome-face-front">
+                  <img src="../assets/images/sandmen/tome_purple.png" alt="Places tome card back." />
+                </span>
+                <span class="tome-face tome-face-back">
+                  <span class="mini-card" style="--n: 1"></span>
+                  <span class="mini-card" style="--n: 2"></span>
+                  <span class="mini-card" style="--n: 3"></span>
+                  <span class="mini-card" style="--n: 4"></span>
+                  <span class="mini-card" style="--n: 5"></span>
+                  <span class="mini-card" style="--n: 6"></span>
+                  <span class="mini-card" style="--n: 7"></span>
+                  <span class="mini-card" style="--n: 8"></span>
+                </span>
+              </span>
+            </button>
             <figcaption>Places</figcaption>
           </figure>
-          <figure class="tome-card">
-            <img src="../assets/images/sandmen/tome_green.png" alt="Figures tome card back." />
+          <figure class="tome-card" data-cards="8" data-row="row_figures">
+            <button class="tome-flipper" type="button" aria-label="Reveal Figures cards">
+              <span class="tome-flipper-inner">
+                <span class="tome-face tome-face-front">
+                  <img src="../assets/images/sandmen/tome_green.png" alt="Figures tome card back." />
+                </span>
+                <span class="tome-face tome-face-back">
+                  <span class="mini-card" style="--n: 1"></span>
+                  <span class="mini-card" style="--n: 2"></span>
+                  <span class="mini-card" style="--n: 3"></span>
+                  <span class="mini-card" style="--n: 4"></span>
+                  <span class="mini-card" style="--n: 5"></span>
+                  <span class="mini-card" style="--n: 6"></span>
+                  <span class="mini-card" style="--n: 7"></span>
+                  <span class="mini-card" style="--n: 8"></span>
+                </span>
+              </span>
+            </button>
             <figcaption>Figures</figcaption>
           </figure>
-          <figure class="tome-card">
-            <img src="../assets/images/sandmen/tome_magenta.png" alt="Feelings tome card back." />
+          <figure class="tome-card" data-cards="8" data-row="row_emotions">
+            <button class="tome-flipper" type="button" aria-label="Reveal Feelings cards">
+              <span class="tome-flipper-inner">
+                <span class="tome-face tome-face-front">
+                  <img src="../assets/images/sandmen/tome_magenta.png" alt="Feelings tome card back." />
+                </span>
+                <span class="tome-face tome-face-back">
+                  <span class="mini-card" style="--n: 1"></span>
+                  <span class="mini-card" style="--n: 2"></span>
+                  <span class="mini-card" style="--n: 3"></span>
+                  <span class="mini-card" style="--n: 4"></span>
+                  <span class="mini-card" style="--n: 5"></span>
+                  <span class="mini-card" style="--n: 6"></span>
+                  <span class="mini-card" style="--n: 7"></span>
+                  <span class="mini-card" style="--n: 8"></span>
+                </span>
+              </span>
+            </button>
             <figcaption>Feelings</figcaption>
           </figure>
-          <figure class="tome-card tome-clarity">
-            <img src="../assets/images/sandmen/tome_clarity.png" alt="Clarity tome card back." />
+          <figure class="tome-card tome-clarity" data-cards="4" data-row="row_clarity">
+            <button class="tome-flipper" type="button" aria-label="Reveal Clarity cards">
+              <span class="tome-flipper-inner">
+                <span class="tome-face tome-face-front">
+                  <img src="../assets/images/sandmen/tome_clarity.png" alt="Clarity tome card back." />
+                </span>
+                <span class="tome-face tome-face-back">
+                  <span class="mini-card" style="--n: 1"></span>
+                  <span class="mini-card" style="--n: 2"></span>
+                  <span class="mini-card" style="--n: 3"></span>
+                  <span class="mini-card" style="--n: 4"></span>
+                </span>
+              </span>
+            </button>
             <figcaption>Clarity</figcaption>
           </figure>
-        </div>
-
-        <p class="tome-rows-intro">Each of the four standard tomes carries eight cards, each offering a choice of two actions. Clarity, the fifth tome, has four cards &mdash; and any one of them can override the lead suit and be played as <em>any</em> action.</p>
-
-        <div class="tome-rows">
-          <div class="tome-row">
-            <img class="tome-row-pip" src="../assets/images/sandmen/pip_situations.png" alt="" />
-            <span class="tome-row-name">Situations</span>
-            <img class="tome-row-cards" src="../assets/images/sandmen/row_situations.png" alt="Eight Situations cards, numbered 1 through 8." />
-          </div>
-          <div class="tome-row">
-            <img class="tome-row-pip" src="../assets/images/sandmen/pip_places.png" alt="" />
-            <span class="tome-row-name">Places</span>
-            <img class="tome-row-cards" src="../assets/images/sandmen/row_places.png" alt="Eight Places cards, numbered 1 through 8." />
-          </div>
-          <div class="tome-row">
-            <img class="tome-row-pip" src="../assets/images/sandmen/pip_figures.png" alt="" />
-            <span class="tome-row-name">Figures</span>
-            <img class="tome-row-cards" src="../assets/images/sandmen/row_figures.png" alt="Eight Figures cards, numbered 1 through 8." />
-          </div>
-          <div class="tome-row">
-            <img class="tome-row-pip" src="../assets/images/sandmen/pip_emotions.png" alt="" />
-            <span class="tome-row-name">Feelings</span>
-            <img class="tome-row-cards" src="../assets/images/sandmen/row_emotions.png" alt="Eight Feelings cards, numbered 1 through 8." />
-          </div>
-          <div class="tome-row tome-row-clarity">
-            <img class="tome-row-pip" src="../assets/images/sandmen/pip_clarity.png" alt="" />
-            <span class="tome-row-name">Clarity</span>
-            <img class="tome-row-cards" src="../assets/images/sandmen/row_clarity.png" alt="Four Clarity cards, the wild trump that overrides any suit." />
-          </div>
         </div>
 
         <div class="pip-divider">
@@ -249,6 +296,16 @@
       <small>&copy; 2026 Tricoastal Games. All rights reserved.</small>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.sandmen-tomes .tome-flipper').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.tome-card');
+        const isFlipped = card.classList.toggle('flipped');
+        btn.setAttribute('aria-pressed', isFlipped ? 'true' : 'false');
+      });
+    });
+  </script>
 
 </body>
 </html>
