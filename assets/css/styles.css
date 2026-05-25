@@ -188,6 +188,15 @@ p { margin: 0 0 1em; color: var(--mist); }
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
 }
 
+.dropdown::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18px;
+  height: 18px;
+}
+
 .has-dropdown:hover .dropdown,
 .has-dropdown:focus-within .dropdown {
   opacity: 1;
@@ -409,6 +418,13 @@ p { margin: 0 0 1em; color: var(--mist); }
   margin-top: auto;
 }
 .game-card .card-link:hover { color: var(--sand-soft); }
+
+.game-card .card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
 
 /* About preview */
 .split {
@@ -1546,48 +1562,30 @@ body.theme-avaris .btn-primary:hover {
   object-fit: cover;
 }
 
+/* Back face shows a single sample card (the 8 for standard tomes,
+   the 4 for Clarity). Uses the row image as a background, scaled so
+   one card fills the face and positioned to the rightmost slot. */
 .tome-face-back {
   transform: rotateY(180deg);
-  background: linear-gradient(180deg, var(--ink-2), #221941);
+  background-color: var(--ink-2);
+  background-repeat: no-repeat;
+  background-size: 800% 100%;
+  background-position: 100% center;
   border: 1px solid rgba(255, 95, 189, 0.28);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 4px;
-  padding: 8px;
 }
 
 .tome-clarity .tome-face-back {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 6px;
-  padding: 10px;
-  border-color: rgba(75, 231, 200, 0.4);
-  background:
-    linear-gradient(180deg, rgba(75, 231, 200, 0.04), rgba(255, 95, 189, 0.04)),
-    linear-gradient(180deg, var(--ink-2), #221941);
-}
-
-.mini-card {
-  background-size: 800% 100%;
-  background-position: calc((var(--n) - 1) / 7 * 100%) center;
-  background-repeat: no-repeat;
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-}
-
-.tome-clarity .mini-card {
   background-size: 400% 100%;
-  background-position: calc((var(--n) - 1) / 3 * 100%) center;
+  border-color: rgba(75, 231, 200, 0.4);
+  box-shadow: inset 0 0 24px rgba(75, 231, 200, 0.10);
 }
 
-/* Per-tome background images for the mini-cards */
-.tome-card[data-row="row_situations"] .mini-card { background-image: url('../images/sandmen/row_situations.png'); }
-.tome-card[data-row="row_places"]     .mini-card { background-image: url('../images/sandmen/row_places.png'); }
-.tome-card[data-row="row_figures"]    .mini-card { background-image: url('../images/sandmen/row_figures.png'); }
-.tome-card[data-row="row_emotions"]   .mini-card { background-image: url('../images/sandmen/row_emotions.png'); }
-.tome-card[data-row="row_clarity"]    .mini-card { background-image: url('../images/sandmen/row_clarity.png'); }
+/* Per-tome row image as the back-face background */
+.tome-card[data-row="row_situations"] .tome-face-back { background-image: url('../images/sandmen/row_situations.png'); }
+.tome-card[data-row="row_places"]     .tome-face-back { background-image: url('../images/sandmen/row_places.png'); }
+.tome-card[data-row="row_figures"]    .tome-face-back { background-image: url('../images/sandmen/row_figures.png'); }
+.tome-card[data-row="row_emotions"]   .tome-face-back { background-image: url('../images/sandmen/row_emotions.png'); }
+.tome-card[data-row="row_clarity"]    .tome-face-back { background-image: url('../images/sandmen/row_clarity.png'); }
 
 .tome-clarity .tome-face-front {
   box-shadow: 0 14px 40px rgba(255, 95, 189, 0.25), 0 14px 40px rgba(75, 231, 200, 0.18);
